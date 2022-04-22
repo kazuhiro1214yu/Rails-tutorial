@@ -26,7 +26,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.content = params[:content]
     @post.save
-    
+    redirect_to posts_index_url
+  end 
+  
+  def destroy
     redirect_to posts_index_url
   end 
   
