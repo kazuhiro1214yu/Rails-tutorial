@@ -53,6 +53,9 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by(email: params[:email],password: params[:password])
     if @user
+# sessionについてここから初めて使用します｡ログインを維持するため｡ブラウザにsessionを保存｡
+      session[:user_id] = @user.id
+      
       flash[:notice] = "ログインしました｡"
       redirect_to posts_index_url
     else
