@@ -30,11 +30,9 @@ class PostsController < ApplicationController
   end 
   
   def edit
-    @post = Post.find(params[:id])
   end 
   
   def update
-    @post = Post.find(params[:id])
     @post.content = params[:content]
     if @post.save
       flash[:notice] = "投稿を編集しました｡"
@@ -45,7 +43,6 @@ class PostsController < ApplicationController
   end 
   
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
     flash[:notice] = "投稿を削除しました｡"
     redirect_to posts_index_url
